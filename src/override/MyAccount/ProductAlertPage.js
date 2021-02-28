@@ -1,0 +1,56 @@
+import React from "react";
+import {useProductAlertPage} from "./useProductAlertPage";
+import {AlertTable} from "./AlertTable";
+import {useGlobalLoading} from "../General/Loading/useGlobalLoading";
+
+const ProductAlertPage = (props) => {
+
+    const {Component: LoadingComponent, setLoading} = useGlobalLoading()
+    const {customerData, reInitialize} = useProductAlertPage({
+        setLoading: setLoading
+    })
+
+    const stockData = customerData ? customerData.customer.mp_product_alert.out_of_stock : null
+    const priceData = customerData ? customerData.customer.mp_product_alert.product_price : null
+
+
+    return (
+        <div style={{
+            marginTop: 30,
+            marginBottom: 30,
+            marginLeft: 30,
+            marginRight: 30
+        }}>
+            <LoadingComponent/>
+            <div>
+                <h2 style={{
+                    fontSize: 30,
+                }}>My Product Alerts</h2>
+            </div>
+
+            <div style={{
+                marginTop: 20,
+                marginBottom: 40,
+            }}>
+                <AlertTable title={'Alert for Stock Change'}
+                            data={stockData}
+                            reInitialize={reInitialize}
+                            setLoading={setLoading}
+                />
+            </div>
+
+            <div style={{
+                marginTop: 20,
+                marginBottom: 20,
+            }}>
+                <AlertTable title={'Alert for Price Change'}
+                            data={priceData}
+                            reInitialize={reInitialize}
+                            setLoading={setLoading}
+                />
+            </div>
+        </div>
+    )
+}
+
+export default ProductAlertPage
