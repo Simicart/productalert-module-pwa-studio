@@ -29,10 +29,10 @@ export const AlertTable = (props) => {
             <div>
                 <table style={{}}>
                     <thead style={{}}>
-                    <th scope={'col'} style={{padding: '11px 10px', minWidth: 75}}/>
+                    <th scope={'col'} style={{padding: '11px 10px', minWidth: 170}}/>
                     <th scope={'col'} style={{padding: '11px 10px', minWidth: 250}}>Product Name</th>
                     <th scope={'col'} style={{padding: '11px 10px'}}>Alert Status</th>
-                    <th scope={'col'} style={{padding: '11px 10px', minWidth: 200}}>Subscribed On</th>
+                    <th scope={'col'} style={{padding: '11px 10px', minWidth: 250}}>Subscribed On</th>
                     <th scope={'col'} style={{padding: '11px 10px'}}>Action</th>
                     </thead>
 

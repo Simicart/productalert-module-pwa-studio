@@ -13,6 +13,12 @@ query{
           subscribe_updated_at
           subscriber_id
           website_id
+          product_data{
+            name
+            sku
+            product_url
+            product_image_url
+          }
         }
         pageInfo{
           currentPage
@@ -28,6 +34,12 @@ query{
           subscribe_updated_at
           subscriber_id
           website_id
+          product_data{
+            name
+            sku
+            product_url
+            product_image_url
+          }
         }
         pageInfo{
           currentPage
@@ -44,7 +56,7 @@ export const useProductAlertPage = (props) => {
     const setLoading = props ? props.setLoading : null
 
     const {data, refetch: reInitialize, loading} = useQuery(getCustomerSubscriptionQuery, {
-        fetchPolicy: "network-only",
+        fetchPolicy: "no-cache",
         onCompleted: () => {
             setLoading(false)
         },

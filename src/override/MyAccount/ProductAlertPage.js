@@ -29,8 +29,8 @@ const ProductAlertPage = (props) => {
             </div>
 
             <div style={{
-                marginTop: 20,
-                marginBottom: 40,
+                marginTop: 40,
+                marginBottom: 60,
             }}>
                 <AlertTable title={'Alert for Stock Change'}
                             data={stockData}
