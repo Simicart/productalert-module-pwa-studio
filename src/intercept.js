@@ -21,7 +21,6 @@ module.exports = targets => {
         flags[targets.name] = {esModules: true, cssModules: true};
     });
 
-    // console.log(targets.of('@magento/pwa-buildpack'))
     targets.of('@magento/venia-ui').routes.tap(
         routesArray => {
             routesArray.push({
@@ -36,4 +35,6 @@ module.exports = targets => {
     targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
         new moduleOverrideWebpackPlugin(componentOverrideMapping).apply(compiler)
     })
+
+    console.log("Plugin Product Alert is now running... ")
 };

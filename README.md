@@ -9,5 +9,5 @@ A plugin allowing customers/guests to turn notification for a price drop, or re-
 
       "dependencies": {
       "@magento/pwa-buildpack": "~8.0.1",
-      "@simicart/testension": "link:./@simicart/testension"
+      "@simicart/testension": "link: <link to the repo you cloned>"
       }

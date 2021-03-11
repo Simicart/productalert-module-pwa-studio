@@ -6,7 +6,13 @@ import {useGlobalLoading} from "../General/Loading/useGlobalLoading";
 const ProductAlertPage = (props) => {
 
     const {Component: LoadingComponent, setLoading} = useGlobalLoading()
-    const {customerData, reInitialize} = useProductAlertPage({
+    const {
+        customerData,
+        reInitialize,
+        shouldShowStockTable,
+        shouldShowPriceTable,
+        loading
+    } = useProductAlertPage({
         setLoading: setLoading
     })
 
@@ -28,27 +34,39 @@ const ProductAlertPage = (props) => {
                 }}>My Product Alerts</h2>
             </div>
 
-            <div style={{
-                marginTop: 40,
-                marginBottom: 60,
-            }}>
-                <AlertTable title={'Alert for Stock Change'}
-                            data={stockData}
-                            reInitialize={reInitialize}
-                            setLoading={setLoading}
-                />
-            </div>
+            {(!shouldShowPriceTable && !shouldShowStockTable && !loading) && (
+                <div style={{
+                    marginTop: 25
+                }}>
+                    <h3>You currently have no subscription.</h3>
+                </div>
+            )}
 
-            <div style={{
-                marginTop: 20,
-                marginBottom: 20,
-            }}>
-                <AlertTable title={'Alert for Price Change'}
-                            data={priceData}
-                            reInitialize={reInitialize}
-                            setLoading={setLoading}
-                />
-            </div>
+            {shouldShowStockTable && (
+                <div style={{
+                    marginTop: 40,
+                    marginBottom: 60,
+                }}>
+                    <AlertTable title={'Alert for Stock Change'}
+                                data={stockData}
+                                reInitialize={reInitialize}
+                                setLoading={setLoading}
+                    />
+                </div>
+            )}
+
+            {shouldShowPriceTable && (
+                <div style={{
+                    marginTop: 20,
+                    marginBottom: 20,
+                }}>
+                    <AlertTable title={'Alert for Price Change'}
+                                data={priceData}
+                                reInitialize={reInitialize}
+                                setLoading={setLoading}
+                    />
+                </div>
+            )}
         </div>
     )
 }

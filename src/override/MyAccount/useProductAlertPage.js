@@ -69,9 +69,26 @@ export const useProductAlertPage = (props) => {
         }
     }, [loading])
 
+    const shouldShowStockTable = (
+        !!data
+        && !!data.customer
+        && !!data.customer.mp_product_alert
+        && !!data.customer.mp_product_alert.out_of_stock
+        && data.customer.mp_product_alert.out_of_stock.total_count > 0)
+
+    const shouldShowPriceTable = (
+        !!data
+        && !!data.customer
+        && !!data.customer.mp_product_alert
+        && !!data.customer.mp_product_alert.product_price
+        && data.customer.mp_product_alert.product_price.total_count > 0)
+
 
     return {
         customerData: data,
-        reInitialize: reInitialize
+        loading: !!loading,
+        reInitialize: reInitialize,
+        shouldShowStockTable: shouldShowStockTable,
+        shouldShowPriceTable: shouldShowPriceTable
     }
 }
