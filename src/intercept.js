@@ -26,7 +26,7 @@ module.exports = targets => {
             routesArray.push({
                 name: 'ProductAlert',
                 pattern: '/product_alert',
-                path: '@simicart/productalert/src/override/MyAccount/productAlertPage.js'
+                path: '@simicart/productalert/src/override/MyAccount/ProductAlertPage.js'
             })
             return routesArray
         }
