@@ -5,6 +5,7 @@
 
 
 
+https://productalert.pwa-commerce.com/carmina-earrings.html
 
 ## Requirements
 
