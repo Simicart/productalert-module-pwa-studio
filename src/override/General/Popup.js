@@ -1,4 +1,5 @@
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
+import {useWindowDimensions} from "./useWindowDimension";
 
 export const Popup = (props) => {
     const [inputValue, setInputValue] = useState('')
@@ -6,6 +7,9 @@ export const Popup = (props) => {
     const isVisible = props ? props.showPopup : null
     const setShowPopup = props ? props.setShowPopup : null
     const popupData = props ? props.popupData : null
+
+    const {width} = useWindowDimensions()
+
 
     if (!popupData || !isVisible) {
         return (
@@ -35,6 +39,7 @@ export const Popup = (props) => {
         }
     }
 
+
     return (
         <>
             <div style={{
@@ -50,7 +55,7 @@ export const Popup = (props) => {
                 <div style={{
                     backgroundColor: 'white',
                     verticalAlign: "middle",
-                    width: 500,
+                    width: width > 800 ? width / 2.5 : (width > 650 ? width / 2 : width / 1.2),
                     marginLeft: "auto",
                     marginRight: "auto",
                     marginTop: 100,
@@ -61,10 +66,10 @@ export const Popup = (props) => {
                     borderRadius: 6,
                 }}>
                     <button style={{
-                        marginLeft: 420,
                         color: 'gray',
                         fontSize: 22,
-                        paddingBottom: 20
+                        paddingBottom: 20,
+                        marginLeft: width > 800 ? width / 2.5 - 70 : (width > 650 ? width / 2 - 80 : width / 1.2 - 80)
                     }}
                             onClick={() => setShowPopup && setShowPopup(false)}
                     >x
